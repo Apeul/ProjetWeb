@@ -1,0 +1,24 @@
+body{
+	background-color: #add8e6;
+}
+
+h1{
+	color : #00008d;
+	font-family : sans-serif ;
+	font-size : 60px;
+	height : 130px;
+	border-bottom : solid #00008d;
+}
+
+#logo{
+	float : left;
+}
+
+#titre{
+	height:120px;
+	font : 80px font-family;
+	font-weight : #00008d;
+	color : #00008d;
+	text-align : center;
+	border-bottom : solid #00008d;
+}
