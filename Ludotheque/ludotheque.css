@@ -153,11 +153,11 @@ body{
 	height:95%;
 }
 
-#info-nouveau{
+#descr-nouveau{
 	width:75%;
 	height:60%;
 	float:left;
-	padding-top:5px;
+	padding:5px;
 	text-align:justify;
 }
 
@@ -165,7 +165,7 @@ body{
 	width:37%;
 	height:40%;
 	float:left;
-	text-align:center;
+	text-align:justify;
 }
 
 #prix-nouveau{
