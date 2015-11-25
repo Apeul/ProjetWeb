@@ -29,20 +29,24 @@
      	</div>
     </div>
     <div id="contenu">
-      <form method="post" action="inscription.php">
+      <form method="post" action="inscription2.php">
         <fieldset>
           Veuillez rentrer un pseudo : <input name="Pseudo" /><br />
           Veuillez rentrer un email : <input name="Mail" /><br />
           Veuillez rentrer votre date de naissance :
           <?php
             echo "Jour <select name='jour_naissance'>";
+            echo "<option value='NULL'>Choisir</option>";
                          for($i=1;$i<32;$i++)
                           {echo "<option value='".$i."'>".$i."</option>";}
                        echo"</select>";
-            echo "Mois <select name='mois_naissance'>
-                    <option value='Janvier'>Janvier</option><option value='Février'>Février</option><option value='Mars'>Mars</option><option value='Avril'>Avril</option><option value='Mai'>Mai</option><option value='Juin'>Juin</option><option value='Juillet'>Juillet</option><option value='Août'>Août</option><option value='Septembre'>Septembre</option><option value='Octobre'>Octobre</option><option value='Novembre'>Novembre</option><option value='Décembre'>Décembre</option>
-                  </select>";
+            echo "Mois <select name='mois_naissance'>";
+              echo "<option value='NULL'>Choisir</option>";
+                         for($i=1;$i<13;$i++)
+                          {echo "<option value='".$i."'>".$i."</option>";}
+                       echo"</select>";
             echo "Année <select name='annee_naissance'>";
+            echo "<option value='NULL'>Choisir</option>";
                          for($i=1915;$i<2013;$i++)
                          echo "<option value='".$i."'>".$i."</option>";
                        echo"</select>";

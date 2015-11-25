@@ -181,3 +181,8 @@ body{
 	background-color: #F0F0F0;
 	clear:both;
 }
+
+.erreur
+{
+	color : red;
+}
