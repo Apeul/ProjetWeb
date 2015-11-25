@@ -16,7 +16,7 @@
 											Vous n'avez pas rentré de pseudo.<br />
 											<input type='password' name='Mdp'/><br/ >
 											<input type='submit' name='Connexion' value='Connexion'/><br />
-											<a href=''> Inscription </a>
+											<a href='inscription.html'> Inscription </a>
 										</fieldset>
 									</form>
 								</body>
@@ -37,7 +37,7 @@
 											<input type='password' name='Mdp'/><br/ >
 											Vous n'avez pas rentré de mot de passe.<br />
 											<input type='submit' name='Connexion' value='Connexion'/><br />
-											<a href=''> Inscription </a>
+											<a href='inscription.html'> Inscription </a>
 										</fieldset>
 									</form>
 								</body>
@@ -92,7 +92,7 @@
 											Le pseudo est incorrect.<br />
 											<input type='password' name='Mdp'/><br/ >
 											<input type='submit' name='Connexion' value='Connexion'/><br />
-											<a href=''> Inscription </a>
+											<a href='inscription.html'> Inscription </a>
 										</fieldset>
 									</form>
 								</body>
@@ -122,7 +122,7 @@
 											<input type='password' name='Mdp'/><br/ >
 											Le mot de passe est incorrect.<br />
 											<input type='submit' name='Connexion' value='Connexion'/><br />
-											<a href=''> Inscription </a>
+											<a href='inscription.html'> Inscription </a>
 										</fieldset>
 									</form>
 								</body>
