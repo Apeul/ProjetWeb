@@ -3,32 +3,30 @@ body{
 	background-color: white;
 	display : block;
 	width: 80%;
-	position: relative; /* on positionne le conteneur */
-  	margin-left: auto;
+  	margin-left: auto; /*Centre le bloc*/
   	margin-right: auto;
 }
 
-div#bandeau {
+#bandeau {
 	height: 120px;
 }
 
-div#logo{
+#logo{
 	height: 70%;
 	width: 25%;
 	float:left;
 	background-color: #F0F0F0;
 }
-div#titre{
+#titre{
 	height: 70%;
 	width: 75%;
 	float: left;
-	font-size: 50px;
+	font-size: 60px;
 	background-color: #F0F0F0;
 	color: #000033;
-	/*clear:both;*/
 }
 
-div#barre{
+#barre{
 	min-width:630px;
 	color: #000033;
 	text-align: center;
@@ -39,14 +37,14 @@ div#barre{
 	border: medium solid #000033 ;
 }
 
-.nav {
+.menu {
 	font-size : 16px;
     list-style: none none;
     margin: 0;
     padding: 0;
     line-height: 1;
 }
-.nav a {
+.menu a{
 	min-width:210px;
 	width: 100%;
 	background-color: #F0F0F0;
@@ -55,28 +53,28 @@ div#barre{
     padding:.5em;
     text-decoration: none;
 }
-.nav a:focus,
-.nav a:hover {
+.menu a:focus,
+.menu a:hover{
 	background-color: #F0F0F0;
     color: #000033;
     text-decoration: underline;
 }
-.nav-item {
+.menu-item{
 	width:32.5%;
-    float: left; /* Pour que les liens s’affichent horizontalement */
-    position: relative; /* Crée un contexte de positionnement pour les sous-listes */
+    float: left;
+    position: relative;
 }
-.sub-nav {
+.sous-menu{
 	width:100%;
-    display: none; /* Masque la sous-liste */
-    position: absolute; /* Evite que la dimension du conteneur ne change quand la sous-liste est affichée */
-    margin-top: -2px; /* Pour que le sous-menu recouvre son parent, facilitant le passage de la souris de l’un à l’autre */
+    display: none; 
+    position: absolute; 
+    margin-top: -2px; 
 }
-.nav-item:hover .sub-nav {
-    display: block; /* Affiche cette sous-liste au survol de son conteneur */
+.menu-item:hover .sous-menu{
+    display: block; 
 }
 
-div#contenu {
+#contenu{
 	border-top: medium solid #000033 ;
 	float:left;
 	height: 800px;
@@ -84,7 +82,7 @@ div#contenu {
 	background-color: #F0F0F0;
 }
 
-div#connexion {
+#connexion{
 	padding-left: 5px;
 	float:left;
 	width: 20%;
@@ -95,13 +93,83 @@ div#connexion {
 }
 
 #texte{
-	padding-left: 170px;
-	padding-right:5px;
+	padding-left: 23%; /* %connexion + 3% */
+	padding-right:3%;
 	text-align: justify;
-	color: #000033;
 }
 
-div#piedpage {
+.separation{
+	clear:both;
+	width:100%;
+	height: 5%;
+}
+
+.separation h1{
+	text-align: center;
+}
+
+#jeux{
+	margin:5px;
+	list-style-type:none;
+	padding:5px;
+	clear:both;
+	width: 80%;
+	height: 25%;	
+	border: medium solid #000033 ;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+.sous-jeux{
+	height:95%;
+	padding-top: 5px;
+	text-align: center;
+	width: 33%;
+	display: block;
+	float:left;
+	position: relative;
+}
+
+.sous-jeux:hover{
+	border: medium solid #000033 ;
+}
+
+#nouveau{
+	padding:5px;
+	margin:5px;
+	clear:both;
+	width:80%;
+	height:25%;
+	border: medium solid #000033 ;
+	margin-left: auto;
+  	margin-right: auto;
+}
+
+#image-nouveau{
+	float:left;
+	padding-top:5px;
+	width:25%;
+	text-align:center;
+	height:95%;
+}
+
+#info-nouveau{
+	width:75%;
+	height:70%;
+	float:left;
+	padding-top:5px;
+	text-align:justify;
+}
+
+#prix-nouveau{
+	width:75%;
+	height:30%;
+	float:right;
+	padding-top:5px;
+	text-align:right;
+}
+
+#piedpage {
 	height: 100px;
 	background-color: #F0F0F0;
 	clear:both;
