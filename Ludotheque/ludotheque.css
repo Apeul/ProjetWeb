@@ -24,19 +24,19 @@ div#titre{
 	float: left;
 	font-size: 50px;
 	background-color: #F0F0F0;
-	color: #000022;
+	color: #000033;
 	/*clear:both;*/
 }
 
 div#barre{
 	min-width:630px;
-	color: #000022;
+	color: #000033;
 	text-align: center;
 	height: 30%;
 	font-size: 20px;
 	background-color: #F0F0F0;
 	clear:both;
-	border: medium solid #000022 ;
+	border: medium solid #000033 ;
 }
 
 .nav {
@@ -50,7 +50,7 @@ div#barre{
 	min-width:210px;
 	width: 100%;
 	background-color: #F0F0F0;
-    color: #000022;
+    color: #000033;
     display: block;
     padding:.5em;
     text-decoration: none;
@@ -58,11 +58,11 @@ div#barre{
 .nav a:focus,
 .nav a:hover {
 	background-color: #F0F0F0;
-    color: #000022;
+    color: #000033;
     text-decoration: underline;
 }
 .nav-item {
-	width:32%;
+	width:32.5%;
     float: left; /* Pour que les liens s’affichent horizontalement */
     position: relative; /* Crée un contexte de positionnement pour les sous-listes */
 }
@@ -75,14 +75,9 @@ div#barre{
 .nav-item:hover .sub-nav {
     display: block; /* Affiche cette sous-liste au survol de son conteneur */
 }
-#texte{
-	padding-left: 170px;
-	padding-right:5px;
-	text-align: justify;
-}
 
 div#contenu {
-	border-top: medium solid #000022 ;
+	border-top: medium solid #000033 ;
 	float:left;
 	height: 800px;
 	width: 100%;
@@ -95,8 +90,15 @@ div#connexion {
 	width: 20%;
 	height: 20%;
 	background-color: #F0F0F0;
-	border: medium solid #000022 ;
+	border: medium solid #000033 ;
 	border-top:none;
+}
+
+#texte{
+	padding-left: 170px;
+	padding-right:5px;
+	text-align: justify;
+	color: #000033;
 }
 
 div#piedpage {
