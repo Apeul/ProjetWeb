@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,8 +30,8 @@
      	</div>
     </div>
     <div id="contenu">
-        <div id="connexion">
-        <?php
+      <div id="connexion">
+         <?php
             if (session_status() != PHP_SESSION_NONE)
             {   if($_SESSION['connect']==0)
                 {
@@ -64,7 +65,7 @@
                 }
           }
           else
-          {
+          {echo"qgezopkmgkzeqm,gqiomjmoge";
             echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
             echo"Mot de passe : <br /><input type='password' name='Mdp'/><br />";
@@ -75,45 +76,12 @@
           }
           ?>
       </div>
-      <p id = "texte"> Praesent porttitor ultrices dui, sed congue tortor cursus eget. Maecenas id mauris eu ligula vulputate mollis. Mauris sed sapien orci. Suspendisse lorem dui, laoreet sed vulputate et, pretium vel quam. Sed et orci eget lorem tempor molestie. Sed semper ultricies neque quis auctor. Aliquam venenatis vestibulum est, sed tincidunt dolor euismod in. Nullam a nibh varius, porttitor ipsum at, tempus nunc. Morbi interdum eget enim eu cursus.
+      <p>Site conçu par Mok Modira et Laville Martin dans le cadre d'un projet de Web Dynamique. Licence 2 Sciences Pour l'Ingénieur, Université du Maine, Le Mans. 
       </p>
-      <div class = "separation">
-        <h1> Nos Meilleurs Jeux : </h1>
-      </div>
-      <ul id = "jeux">
-        <li class = "sous-jeux">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </li>
-        <li class = "sous-jeux">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </li>
-        <li class = "sous-jeux">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </li>
-      </ul>
-      <div class = "separation">
-        <h1> Nouveau : </h1>
-      </div>
-      <div id = "nouveau">  
-        <div id = "image-nouveau">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </div>
-        <div id = "descr-nouveau">
-          <p>  Fallout 4 est un RPG à la première personne se déroulant dans un univers post-apocalyptique. Dans un monde dévasté par les bombes, vous incarnez un personnage solitaire sortant d'un abri anti-atomique qui doit se faire sa place dans la ville de Boston et de ses environs.
-          </p>
-        </div>
-        <div id = "genreage-nouveau">
-          <p> Genre : RPG/FPS </br> Age recommandé : 18+ </p>
-        </div>
-        <div id ="prix-nouveau">
-          <p> Prix : 59,99€ </p>
-        </div>    
-      </div>
     </div> 		
   <div id="piedpage">Ceci est le pied de page</div>
   </body>
 </html>
+
+
+
