@@ -38,7 +38,7 @@ body{
 }
 
 .menu {
-	font-size : 16px;
+font-size : 16px;
     list-style: none none;
     margin: 0;
     padding: 0;
@@ -77,12 +77,13 @@ body{
 #contenu{
 	border-top: medium solid #000033 ;
 	float:left;
-	height: 800px;
+	height: auto;
 	width: 100%;
 	background-color: #F0F0F0;
 }
 
 #connexion{
+	padding-top: 5px;
 	padding-left: 5px;
 	float:left;
 	width: 20%;
@@ -90,6 +91,10 @@ body{
 	background-color: #F0F0F0;
 	border: medium solid #000033 ;
 	border-top:none;
+}
+
+input.champs{
+	width:90%;
 }
 
 #texte{
@@ -114,17 +119,17 @@ body{
 	padding:5px;
 	clear:both;
 	width: 80%;
-	height: 25%;	
+	height: 200px;	
 	border: medium solid #000033 ;
 	margin-left: auto;
   	margin-right: auto;
 }
 
-.sous-jeux{
+.sous-jeux{ 
 	height:95%;
 	padding-top: 5px;
 	text-align: center;
-	width: 33%;
+	width: 32%;
 	display: block;
 	float:left;
 	position: relative;
@@ -139,7 +144,7 @@ body{
 	margin:5px;
 	clear:both;
 	width:80%;
-	height:25%;
+	height:200px;
 	border: medium solid #000033 ;
 	margin-left: auto;
   	margin-right: auto;
@@ -154,11 +159,17 @@ body{
 }
 
 #descr-nouveau{
-	width:75%;
+	width:73%;
 	height:60%;
 	float:left;
 	padding:5px;
 	text-align:justify;
+}
+
+@media screen and (max-width: 870px) {
+	body{
+		font-size: 14px;
+  	}
 }
 
 #genreage-nouveau{
