@@ -2,17 +2,19 @@
 <?php
 	if(isset($_POST["Connexion"]))
 	{
-		if(empty($_POST["Pseudo"]))
+		if(empty($_POST["Pseudo"]) || empty($_POST["Mdp"]))
 		{
-			$_SESSION['pseudo_vide']=1;
-			include("ludotheque.php");
-			$_SESSION['pseudo_vide']=0;
-		}
-		else if(empty($_POST["Mdp"]))	
-		{
-			$_SESSION["mdp_vide"]=1;
+			if(empty($_POST["Pseudo"]))
+			{
+				$_SESSION['pseudo_vide']=1;
+			}
+			if(empty($_POST["Mdp"]))	
+			{
+				$_SESSION["mdp_vide"]=1;
+			}
 			include("ludotheque.php");
 			$_SESSION["mdp_vide"]=0;
+			$_SESSION['pseudo_vide']=0;
 		}
 		else
 		{
