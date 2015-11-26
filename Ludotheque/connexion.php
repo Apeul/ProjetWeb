@@ -6,7 +6,6 @@
 		{
 			$_SESSION['pseudo_vide']=1;
 			include("ludotheque.php");
-			echo $_SESSION['pseudo_vide'];
 			$_SESSION['pseudo_vide']=0;
 		}
 		else if(empty($_POST["Mdp"]))	
