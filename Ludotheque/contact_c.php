@@ -1,3 +1,10 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE)
+  {
+    session_start();
+  }
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,12 +37,9 @@
     </div>
     <div id="contenu">
       <div id="connexion">
-      	<form method="post" action="connexion.php">
-          Pseudo ou email : <input name="Pseudo" placeholder="Pseudo/Mail" class="champs" /> <br/>
-          Mot de passe : <br /><input type="password" name="Mdp" class="champs" /> <br/>
-          <input type="submit" name="Connexion" value="Connexion"/><br/>
-          <a href="inscription.php"> Inscription </a>
-          </form>  
+        <?php
+            echo "Bonjour ".$_SESSION['reponse'][0].".";
+        ?>
       </div>
       <p>Site conçu par Mok Modira et Laville Martin dans le cadre d'un projet de Web Dynamique. Licence 2 Sciences Pour l'Ingénieur, Université du Maine, Le Mans. 
       </p>
