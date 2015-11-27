@@ -1,3 +1,15 @@
+<?php
+
+if(!isset($_SESSION))
+{   session_start();
+}
+if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
+    $_SESSION['pseudo_vide']=0;
+    $_SESSION['mdp_vide']=0;
+    $_SESSION['connect']=0;
+    $_SESSION['pseudo_erreur']=0;
+    $_SESSION['mdp_erreur']=0;
+  }?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,7 +30,7 @@
         <ul class="menu">
           <li class="menu-item"><a href="ludotheque.php">Accueil</a></li>
           <li class="menu-item">
-            <a href="ludotheque.php">Nos Jeux</a>
+            <a href="jeux.php">Nos Jeux</a>
             <ul class="menu sous-menu">
               <li class="sous-menu-item"><a href="ludotheque.php">Trier par age</a></li>
               <li class="sous-menu-item"><a href="ludotheque.php">Trier par genre</a></li>

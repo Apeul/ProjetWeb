@@ -1,6 +1,6 @@
 body{
 	min-width:640px;
-	background-color: white;
+	background-color: #F0F0F0;
 	display : block;
 	width: 80%;
   	margin-left: auto; /*Centre le bloc*/
@@ -45,13 +45,14 @@ font-size : 16px;
     line-height: 1;
 }
 .menu a{
-	min-width:210px;
 	width: 100%;
 	background-color: #F0F0F0;
-    color: #000033;
-    display: block;
-    padding:.5em;
-    text-decoration: none;
+	color: #003;
+	display: block;
+	text-decoration: none;
+	box-sizing: padding-box;
+	max-width: 100%;
+	padding: 0.5em;
 }
 .menu a:focus,
 .menu a:hover{
@@ -64,7 +65,9 @@ font-size : 16px;
     float: left;
     position: relative;
 }
+
 .sous-menu{
+	border: thin solid #000033;
 	width:100%;
     display: none; 
     position: absolute; 
@@ -113,7 +116,7 @@ input.champs{
 	text-align: center;
 }
 
-#jeux{
+#best-jeux{
 	margin:5px;
 	list-style-type:none;
 	padding:5px;
@@ -139,10 +142,9 @@ input.champs{
 	border: medium solid #000033 ;
 }
 
-#nouveau{
+#nouveau, .jeux{
 	padding:5px;
 	margin:5px;
-	clear:both;
 	width:80%;
 	height:200px;
 	border: medium solid #000033 ;
@@ -150,7 +152,7 @@ input.champs{
   	margin-right: auto;
 }
 
-#image-nouveau{
+#image-nouveau, .image-jeux{
 	float:left;
 	padding-top:5px;
 	width:25%;
@@ -158,7 +160,7 @@ input.champs{
 	height:95%;
 }
 
-#descr-nouveau{
+#descr-nouveau, .descr-jeux{
 	width:73%;
 	height:60%;
 	float:left;
@@ -172,14 +174,14 @@ input.champs{
   	}
 }
 
-#genreage-nouveau{
+#genreage-nouveau, .genreage-jeux{
 	width:37%;
 	height:40%;
 	float:left;
 	text-align:justify;
 }
 
-#prix-nouveau{
+#prix-nouveau, .prix-jeux{
 	width:37%;
 	height:40%;
 	float:left;

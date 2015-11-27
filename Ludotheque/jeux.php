@@ -2,13 +2,13 @@
 
 if(!isset($_SESSION))
 {   session_start();
-    $_SESSION['pseudo_vide']=0;
-    $_SESSION['mdp_vide']=0;
-    $_SESSION['pseudo_erreur']=0;
-    $_SESSION['mdp_erreur']=0;
 }
 if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
+    $_SESSION['pseudo_vide']=0;
+    $_SESSION['mdp_vide']=0;
     $_SESSION['connect']=0;
+    $_SESSION['pseudo_erreur']=0;
+    $_SESSION['mdp_erreur']=0;
   }?>
 <!DOCTYPE html>
 <html>
@@ -65,7 +65,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                       {
                         echo "<span class='erreur'>Le mot de passe est incorrect.</span><br />";
                       }
-                  echo"<input type='submit' name='Connexion' value='Connexion'/><br/>
+                  echo"<input type='submit' name='Connexion_j' value='Connexion'/><br/>
                   <a href='inscription.php'> Inscription </a>
                     </form> ";
                 }
@@ -73,49 +73,63 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                 {
                   echo "Bonjour ".$_SESSION['reponse'][0].".";
                   echo"<form method='post' action='connexion.php'>
-                        <input type='submit' name='Deconnexion' value='Deconnexion'/><br/>
+                        <input type='submit' name='Deconnexion_j' value='Deconnexion'/><br/>
                         </form>";
                 }
           ?>
-      </div>
-      <p id = "texte"> Praesent porttitor ultrices dui, sed congue tortor cursus eget. Maecenas id mauris eu ligula vulputate mollis. Mauris sed sapien orci. Suspendisse lorem dui, laoreet sed vulputate et, pretium vel quam. Sed et orci eget lorem tempor molestie. Sed semper ultricies neque quis auctor. Aliquam venenatis vestibulum est, sed tincidunt dolor euismod in. Nullam a nibh varius, porttitor ipsum at, tempus nunc. Morbi interdum eget enim eu cursus.
-      </p>
-      <div class = "separation">
-        <h1> Nos Meilleurs Jeux : </h1>
-      </div>
-      <ul id = "best-jeux">
-        <li class = "sous-jeux">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </li>
-        <li class = "sous-jeux">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </li>
-        <li class = "sous-jeux">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </li>
-      </ul>
-      <div class = "separation">
-        <h1> Nouveau : </h1>
-      </div>
-      <div id = "nouveau">  
-        <div id = "image-nouveau">
-          <a href="#"><img src="Fallout4.jpg" alt="Fallout" /></a>
-          <figcaption>Fallout 4</figcaption>
-        </div>
-        <div id = "descr-nouveau">
-          <p>  Fallout 4 est un RPG à la première personne se déroulant dans un univers post-apocalyptique. Dans un monde dévasté par les bombes, vous incarnez un personnage solitaire sortant d'un abri anti-atomique qui doit se faire sa place dans la ville de Boston et de ses environs.
-          </p>
-        </div>
-        <div id = "genreage-nouveau">
-          <p> Genre : RPG/FPS </br> Age recommandé : 18+ </p>
-        </div>
-        <div id ="prix-nouveau">
-          <p> Prix : 59,99€ </p>
-        </div>    
-      </div>
+    	</div> <!-- test -->
+    	 <a href="tri.php?genre=rpg">rpg</a> <a href="tri.php?genre=fps">fps</a> <a href="tri.php?genre=action">action</a> <a href="tri.php?genre=strategie">strategie</a> <a href="tri.php?genre=plateforme">plateforme</a>  <a href="tri.php?age=3">3+</a> <a href="tri.php?age=7">7+</a> <a href="tri.php?age=12">12+</a> <a href="tri.php?age=18+">18+</a>
+
+
+      	<?php
+      		$user="Modira";
+			$password="mok";
+			$base="ludotheque";
+
+			$con=mysqli_connect("localhost",$user,$password,$base);
+			$retour=mysqli_select_db($con,$base);
+			$con->set_charset("utf8");
+
+			if(!$retour)
+				echo "La connexion à la base n'a pas abouti.";
+
+			$requete='SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description FROM `jeux`';
+			$reponse=mysqli_query($con,$requete);
+
+			if (!$reponse)
+			{
+  			  printf("Error: %s\n", mysqli_error($con));
+   			  exit();
+			}
+
+			while($donnees=mysqli_fetch_array($reponse,MYSQLI_NUM))
+			{
+		      echo "<div class = 'separation'>
+		        	<h1>".$donnees[0]." : </h1>";
+		      echo"</div>
+		      <div class = 'jeux'>  
+		        <div class = 'image-jeux'>
+		          <a href=''><img src='".$donnees[5]."' alt='".$donnees[5]."' /></a>";
+		        echo"</div>
+		        <div class = 'descr-jeux'>
+		          <p>  ".$donnees[7];
+		        echo"</p>
+		        </div>
+		        <div class = 'genreage-jeux'>
+		          <p> Genre : ".$donnees[1];
+		          if($donnees[2] != NULL)
+		          {
+		          	echo "/".$donnees[2];
+		          }
+		          echo "</br> Age recommandé : ".$donnees[3]."+ </p>
+		        </div>
+		        <div class ='prix-jeux'>
+		          <p> Prix : ".$donnees[4]."€ </p>
+		        </div>    
+			  </div>
+			  </div>";
+			 }
+		?>
     </div>		
   <div id="piedpage">Ceci est le pied de page</div>
   </body>
