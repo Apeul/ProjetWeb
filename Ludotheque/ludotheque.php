@@ -1,3 +1,12 @@
+<?php
+if(session_status()==PHP_SESSION_NONE){
+    session_start();
+  $pseudo_vide=0;
+  $mdp_vide=0;
+  $connect=0;
+  $pseudo_erreur=0;
+  $mdp_erreur=0;
+    }?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -31,26 +40,25 @@
     <div id="contenu">
         <div id="connexion">
         <?php
-            if (session_status() != PHP_SESSION_NONE)
-            {   if($_SESSION['connect']==0)
+                if($connect==0)
                 {
                    echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
 
-                      if($_SESSION['pseudo_vide']==1)
+                      if($pseudo_vide==1)
                       {
                         echo "<span class='erreur'>Vous n'avez pas rentré de pseudo.</span><br />";
                       }
-                      else if($_SESSION["pseudo_erreur"]==1)
+                      else if($pseudo_erreur==1)
                       {
                         echo "<span class='erreur'>Le pseudo est incorrect.</span><br />";
                       }
                   echo"Mot de passe : <br /><input type='password' name='Mdp'/><br />";
-                      if($_SESSION["mdp_vide"]==1)
+                      if($mdp_vide==1)
                       {
                         echo "<span class='erreur'>Vous n'avez pas rentré de mot de passe.</span><br />";
                       }
-                      else if($_SESSION["mdp_erreur"]==1)
+                      else if($mdp_erreur==1)
                       {
                         echo "<span class='erreur'>Le mot de passe est incorrect.</span><br />";
                       }
@@ -60,19 +68,11 @@
                 }
                 else
                 {
-                  echo "Bonjour ".$_SESSION['reponse'][0].".";
+                  echo "Bonjour ".$reponse[0].".";
+                  echo"<form method='post' action='connexion.php'>
+                        <input type='submit' name='Deconnexion' value='Deconnexion'/><br/>
+                        </form>";
                 }
-          }
-          else
-          {
-            echo"<form method='post' action='connexion.php'>
-                  Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
-            echo"Mot de passe : <br /><input type='password' name='Mdp'/><br />";
-             echo"<input type='submit' name='Connexion' value='Connexion'/><br/>
-             <a href='inscription.php'> Inscription </a>
-             </form> ";
-
-          }
           ?>
       </div>
       <p id = "texte"> Praesent porttitor ultrices dui, sed congue tortor cursus eget. Maecenas id mauris eu ligula vulputate mollis. Mauris sed sapien orci. Suspendisse lorem dui, laoreet sed vulputate et, pretium vel quam. Sed et orci eget lorem tempor molestie. Sed semper ultricies neque quis auctor. Aliquam venenatis vestibulum est, sed tincidunt dolor euismod in. Nullam a nibh varius, porttitor ipsum at, tempus nunc. Morbi interdum eget enim eu cursus.

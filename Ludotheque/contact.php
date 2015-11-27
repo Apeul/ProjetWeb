@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,7 +31,7 @@
     <div id="contenu">
       <div id="connexion">
          <?php
-            if (session_status() != PHP_SESSION_NONE)
+            if (session_status() == PHP_SESSION_ACTIVE)
             {   if($_SESSION['connect']==0)
                 {
                    echo"<form method='post' action='connexion.php'>
@@ -55,21 +54,24 @@
                       {
                         echo "<span class='erreur'>Le mot de passe est incorrect.</span><br />";
                       }
-                  echo"<input type='submit' name='Connexion' value='Connexion'/><br/>
+                  echo"<input type='submit' name='Connexion_c' value='Connexion'/><br/>
                   <a href='inscription.php'> Inscription </a>
                     </form> ";
                 }
                 else
                 {
                   echo "Bonjour ".$_SESSION['reponse'][0].".";
+                  echo"<form method='post' action='connexion.php'>
+                        <input type='submit' name='Deconnexion_c' value='Deconnexion'/><br/>
+                        </form>";
                 }
           }
           else
-          {echo"qgezopkmgkzeqm,gqiomjmoge";
+          {
             echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
             echo"Mot de passe : <br /><input type='password' name='Mdp'/><br />";
-             echo"<input type='submit' name='Connexion' value='Connexion'/><br/>
+             echo"<input type='submit' name='Connexion_c' value='Connexion'/><br/>
              <a href='inscription.php'> Inscription </a>
              </form> ";
 
