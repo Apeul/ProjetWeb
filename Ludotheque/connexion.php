@@ -1,20 +1,24 @@
 <?php
-	$pseudo_vide=0;
-	$mdp_vide=0;
-	$connect=0;
-	$pseudo_erreur=0;
-	$mdp_erreur=0;
-	if(isset($_POST["Connexion"]) || isset($_POST["Connexion_c"]))
+if(!isset($_SESSION))
+{   session_start();
+    $_SESSION['pseudo_vide']=0;
+    $_SESSION['mdp_vide']=0;
+    $_SESSION['connect']=0;
+    $_SESSION['pseudo_erreur']=0;
+    $_SESSION['mdp_erreur']=0;
+}?>
+<?php
+	if(isset($_POST["Connexion"]) || isset($_POST["Connexion_c"]) || isset($_POST["Connexion_j"]) || isset($_POST["Connexion_a"]) || isset($_POST["Connexion_g"]))
 	{
 		if(empty($_POST["Pseudo"]) || empty($_POST["Mdp"]))
 		{
 			if(empty($_POST["Pseudo"]))
 			{
-				$pseudo_vide=1;
+				$_SESSION['pseudo_vide']=1;
 			}
 			if(empty($_POST["Mdp"]))	
 			{
-				$mdp_vide=1;
+				$_SESSION['mdp_vide']=1;
 			}
 			if(isset($_POST["Connexion"]))
 			{
@@ -24,9 +28,21 @@
 			{
 				include("contact.php");
 			}
-			$mdp_vide=0;
-			$pseudo_vide=0;
-			$connect=0;
+			else if(isset($_POST["Connexion_j"]))
+			{
+				include("jeux.php");
+			}
+			else if(isset($_POST["Connexion_a"]))
+			{
+				include("agetri.php");
+			}
+			else if(isset($_POST["Connexion_g"]))
+			{
+				include("genretri.php");
+			}
+			$_SESSION['mdp_vide']=0;
+			$_SESSION['pseudo_vide']=0;
+			$_SESSION['connect']=0;
 		}
 		else
 		{
@@ -39,6 +55,7 @@
 
 			$con=mysqli_connect("localhost",$user,$password,$base);
 			$retour=mysqli_select_db($con,$base);
+			$con->set_charset("utf8");
 
 			if(!$retour)
 				echo "La connexion à la base n'a pas abouti.";
@@ -64,7 +81,7 @@
 
 			if($bp==0)
 			{
-				$pseudo_erreur=1;
+				$_SESSION['pseudo_erreur']=1;
 				if(isset($_POST["Connexion"]))
 				{
 					include("ludotheque.php");
@@ -73,8 +90,20 @@
 				{
 					include("contact.php");
 				}
-				$pseudo_erreur=0;
-				$connect=0;
+				else if(isset($_POST["Connexion_j"]))
+				{
+					include("jeux.php");
+				}
+				else if(isset($_POST["Connexion_a"]))
+				{
+					include("agetri.php");
+				}
+				else if(isset($_POST["Connexion_g"]))
+				{
+					include("genretri.php");
+				}
+				$_SESSION['pseudo_erreur']=0;
+				$_SESSION['connect']=0;
 			}
 			else
 			{
@@ -87,7 +116,7 @@
 				}
 				if($bm==0)
 				{
-					$mdp_erreur=1;
+					$_SESSION['mdp_erreur']=1;
 					if(isset($_POST["Connexion"]))
 					{
 						include("ludotheque.php");
@@ -96,8 +125,20 @@
 					{
 						include("contact.php");
 					}
-					$mdp_erreur=0;
-					$connect=0;
+					else if(isset($_POST["Connexion_j"]))
+					{
+						include("jeux.php");
+					}
+					else if(isset($_POST["Connexion_a"]))
+					{
+						include("agetri.php");
+					}
+					else if(isset($_POST["Connexion_g"]))
+					{
+						include("genretri.php");
+					}
+					$_SESSION['mdp_erreur']=0;
+					$_SESSION['connect']=0;
 				}
 				else
 				{
@@ -108,8 +149,8 @@
 		  			  printf("Error: %s\n", mysqli_error($con));
 		   			  exit();
 					}
-					$connect=1;
-					$reponse=mysqli_fetch_array($reponse,MYSQLI_NUM);
+					$_SESSION['connect']=1;
+					$_SESSION['reponse']=mysqli_fetch_array($reponse,MYSQLI_NUM);
 					if(isset($_POST["Connexion"]))
 					{
 						include("ludotheque.php");
@@ -118,11 +159,23 @@
 					{
 						include("contact.php");
 					}
+					else if(isset($_POST["Connexion_j"]))
+					{
+						include("jeux.php");
+					}
+					else if(isset($_POST["Connexion_a"]))
+					{
+						include("agetri.php");
+					}
+					else if(isset($_POST["Connexion_g"]))
+					{
+						include("genretri.php");
+					}
 				}
 			}
 		}
 	}
-	if(isset($_POST["Deconnexion"]) || isset($_POST["Deconnexion_c"]))
+	if(isset($_POST["Deconnexion"]) || isset($_POST["Deconnexion_c"]) || isset($_POST["Deconnexion_j"]) || isset($_POST["Deconnexion_a"]) || isset($_POST["Deconnexion_g"]))
 	{
 		session_destroy();
 		unset($_SESSION);
@@ -133,6 +186,18 @@
 		else if(isset($_POST["Deconnexion_c"]))
 		{
 			include("contact.php");
+		}
+		else if(isset($_POST["Deconnexion_j"]))
+		{
+			include("jeux.php");
+		}
+		else if(isset($_POST["Deconnexion_a"]))
+		{
+			include("agetri.php");
+		}
+		else if(isset($_POST["Deconnexion_g"]))
+		{
+			include("genretri.php");
 		}
 	}
 ?>
