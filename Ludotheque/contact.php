@@ -2,13 +2,13 @@
 
 if(!isset($_SESSION))
 {   session_start();
-}
-if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
-    $_SESSION['pseudo_vide']=0;
-    $_SESSION['mdp_vide']=0;
-    $_SESSION['connect']=0;
     $_SESSION['pseudo_erreur']=0;
     $_SESSION['mdp_erreur']=0;
+    $_SESSION['pseudo_vide']=0;
+    $_SESSION['mdp_vide']=0;
+}
+if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
+    $_SESSION['connect']=0;
   }?>
 <!DOCTYPE html>
 <html>
@@ -32,8 +32,8 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
           <li class="menu-item">
             <a href="jeux.php">Nos Jeux</a>
             <ul class="menu sous-menu">
-              <li class="sous-menu-item"><a href="ludotheque.php">Trier par age</a></li>
-              <li class="sous-menu-item"><a href="ludotheque.php">Trier par genre</a></li>
+              <li class="sous-menu-item"><a href="agetri.php">Trier par age</a></li>
+              <li class="sous-menu-item"><a href="genretri.php">Trier par genre</a></li>
             </ul>
           </li>
           <li class="menu-item"><a href="contact.php">Contact</a></li>
@@ -43,8 +43,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
     <div id="contenu">
       <div id="connexion">
          <?php
-            if (session_status() == PHP_SESSION_ACTIVE)
-            {   if($_SESSION['connect']==0)
+            if($_SESSION['connect']==0)
                 {
                    echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
@@ -77,17 +76,6 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                         <input type='submit' name='Deconnexion_c' value='Deconnexion'/><br/>
                         </form>";
                 }
-          }
-          else
-          {
-            echo"<form method='post' action='connexion.php'>
-                  Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
-            echo"Mot de passe : <br /><input type='password' name='Mdp'/><br />";
-             echo"<input type='submit' name='Connexion_c' value='Connexion'/><br/>
-             <a href='inscription.php'> Inscription </a>
-             </form> ";
-
-          }
           ?>
       </div>
       <p>Site conçu par Mok Modira et Laville Martin dans le cadre d'un projet de Web Dynamique. Licence 2 Sciences Pour l'Ingénieur, Université du Maine, Le Mans. 

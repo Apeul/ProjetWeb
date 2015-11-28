@@ -2,13 +2,13 @@
 
 if(!isset($_SESSION))
 {   session_start();
-}
-if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
     $_SESSION['pseudo_vide']=0;
     $_SESSION['mdp_vide']=0;
-    $_SESSION['connect']=0;
     $_SESSION['pseudo_erreur']=0;
     $_SESSION['mdp_erreur']=0;
+}
+if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
+    $_SESSION['connect']=0;
   }?>
 <!DOCTYPE html>
 <html>
@@ -41,9 +41,9 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
      	</div>
     </div>
     <div id="contenu">
-        <div id="connexion">
+      <div id="connexion">
         <?php
-                if($_SESSION['connect']==0)
+            if($_SESSION['connect']==0)
                 {
                    echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
@@ -65,7 +65,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                       {
                         echo "<span class='erreur'>Le mot de passe est incorrect.</span><br />";
                       }
-                  echo"<input type='submit' name='Connexion_j' value='Connexion'/><br/>
+                  echo "<input type='submit' name='Connexion_j' value='Connexion'/><br/>
                   <a href='inscription.php'> Inscription </a>
                     </form> ";
                 }

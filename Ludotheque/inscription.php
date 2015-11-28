@@ -20,11 +20,11 @@
           <li class="menu-item">
             <a href="ludotheque.php">Nos Jeux</a>
             <ul class="menu sous-menu">
-              <li class="sous-menu-item"><a href="ludotheque.php">Trier par age</a></li>
-              <li class="sous-menu-item"><a href="ludotheque.php">Trier par genre</a></li>
+              <li class="sous-menu-item"><a href="agetri.php">Trier par age</a></li>
+              <li class="sous-menu-item"><a href="genretri.php">Trier par genre</a></li>
             </ul>
           </li>
-          <li class="menu-item"><a href="contact.html">Contact</a></li>
+          <li class="menu-item"><a href="contact.php">Contact</a></li>
         </ul>
      	</div>
     </div>

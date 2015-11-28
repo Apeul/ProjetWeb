@@ -8,7 +8,7 @@ if(!isset($_SESSION))
     $_SESSION['mdp_erreur']=0;
 }?>
 <?php
-	if(isset($_POST["Connexion"]) || isset($_POST["Connexion_c"]))
+	if(isset($_POST["Connexion"]) || isset($_POST["Connexion_c"]) || isset($_POST["Connexion_j"]) || isset($_POST["Connexion_a"]) || isset($_POST["Connexion_g"]))
 	{
 		if(empty($_POST["Pseudo"]) || empty($_POST["Mdp"]))
 		{
@@ -175,7 +175,7 @@ if(!isset($_SESSION))
 			}
 		}
 	}
-	if(isset($_POST["Deconnexion"]) || isset($_POST["Deconnexion_c"]))
+	if(isset($_POST["Deconnexion"]) || isset($_POST["Deconnexion_c"]) || isset($_POST["Deconnexion_j"]) || isset($_POST["Deconnexion_a"]) || isset($_POST["Deconnexion_g"]))
 	{
 		session_destroy();
 		unset($_SESSION);
