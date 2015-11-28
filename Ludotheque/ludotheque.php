@@ -26,6 +26,15 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
         </a>
       </div>
      	<div id="titre"> JEUX </div>
+      <!-- A insérer partout, fais le, ça évitera les conflits /-->
+      <div id="panier">
+        <a href="panier.php"> 
+              <img src="panier.png" alt="Panier" />
+          </a>
+          <br/>
+          Total = 0.00 €
+        </div>
+        <!-- A insérer partout /-->
      	<div id="barre">
         <ul class="menu">
           <li class="menu-item"><a href="ludotheque.php">Accueil</a></li>

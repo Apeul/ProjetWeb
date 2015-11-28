@@ -15,15 +15,20 @@ body{
 	height: 70%;
 	width: 25%;
 	float:left;
-	background-color: #F0F0F0;
 }
 #titre{
 	height: 70%;
 	width: 50%;
 	float: left;
 	font-size: 60px;
-	background-color: #F0F0F0;
 	color: #000033;
+}
+
+#panier{
+	float:left;
+	text-align: center;
+	height: 70%;
+	width: 22%;
 }
 
 #barre{
