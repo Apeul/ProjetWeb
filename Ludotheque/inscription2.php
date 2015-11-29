@@ -5,7 +5,7 @@
 	$_SESSION['annee_vide']=0;
 	$_SESSION['mdp2_vide']=0;
 	$_SESSION['mdp_faux']=0;
-	if(isset($_POST["Inscription"]))
+	if(isset($_POST["Inscription"])) //Le principe d'inscription est exactement le même que pour le bloc de connexion.
 	{
 		if(empty($_POST["Pseudo"]) || empty($_POST["Mail"]) || $_POST["jour_naissance"]=="NULL" || $_POST["mois_naissance"]=="NULL" || $_POST["annee_naissance"]=="NULL" || empty($_POST["Mdp1"]) || empty($_POST["Mdp2"]) || $_POST["Mdp1"]!=$_POST["Mdp2"])
 			if(empty($_POST["Pseudo"]))

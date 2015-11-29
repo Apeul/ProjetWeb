@@ -8,12 +8,12 @@ if(!isset($_SESSION))
 }?>
 
 <?php
-	if(isset($_GET['age']))
+	if(isset($_GET['age'])) //Si le joueur a cliqué sur un des boutons pour le tri des ages.
 	{
-		if($_GET['age']==3)
+		if($_GET['age']==3) //C'est bien un get qu'on utilise, c'est plus simple que si on avait utilisé un post.
 		{
-			$_SESSION['age']=$_GET['age'];
-			include("agetri.php");
+			$_SESSION['age']=$_GET['age']; //On sait à la page agetri.php qu'on a cliqué sur le bouton 3.
+			include("agetri.php"); //On redirige vers la page.
 		}
 		else if($_GET['age']==7)
 		{
@@ -31,7 +31,7 @@ if(!isset($_SESSION))
 			include("agetri.php");
 		}
 	}
-	if(isset($_GET['genre']))	
+	if(isset($_GET['genre'])) //Pareil qu'au dessus.
 	{
 		if($_GET['genre']=='rpg')
 		{

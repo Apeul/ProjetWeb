@@ -31,11 +31,11 @@
     <div id="contenu">
       <form method="post" action="inscription2.php">
         <fieldset>
-          Veuillez rentrer un pseudo : <input name="Pseudo" /><br />
+          Veuillez rentrer un pseudo : <input name="Pseudo" /><br /> <!-- Le principe pour l'inscription est exactement le même que pour le bloc de connexion. -->
           <?php
             if (session_status() != PHP_SESSION_NONE)
             {
-              if($_SESSION['pseudo_vide']==1)
+              if($_SESSION['pseudo_vide']==1) 
               {
                 echo "<span class='erreur'>Vous n'avez pas rentré de pseudo.</span><br />";
               }

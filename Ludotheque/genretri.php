@@ -7,6 +7,18 @@ if(!isset($_SESSION))
     $_SESSION['pseudo_erreur']=0;
     $_SESSION['mdp_erreur']=0;
     $_SESSION['genre']=NULL;
+    $_SESSION['n_connect']=0;
+    for($i=0;$i<50;$i++)
+    {
+      $_SESSION['erreur_'.$i]=0;
+      $_SESSION['nom_jeu'.$i]=0;
+      $_SESSION['prix'.$i]=0;
+      $_SESSION['image'.$i]=0;
+    }
+}
+if(!isset($_SESSION['prix_panier']) || !($_SESSION['prix_panier']) )
+{
+  $_SESSION['prix_panier']=0;
 }
 if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
     $_SESSION['connect']=0;
@@ -14,7 +26,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="ludotheque.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="ludotheque.css" media="screen" /> <!-- Commentaires à la page ludotheque.php -->
     <meta charset = "utf-8">
     <title> -- Ludothèque -- </title>
   </head>
@@ -27,6 +39,19 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
         </a>
       </div>
      	<div id="titre"> JEUX </div>
+            <?php
+      if($_SESSION['connect']==1)
+      {
+        echo "<div id='panier'>
+          <a href='reservation.php'> 
+                <img src='panier.png' alt='Panier' />
+            </a>
+            <br/>
+            Total = ".$_SESSION['prix_panier']." €
+          </div>";
+        //A insérer partout
+      }
+      ?>
      	<div id="barre">
         <ul class="menu">
           <li class="menu-item"><a href="ludotheque.php">Accueil</a></li>
@@ -44,7 +69,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
     <div id="contenu">
         <div id="connexion">
         <?php
-                if($_SESSION['connect']==0)
+                if($_SESSION['connect']==0) //Commentaires à la page ludotheque.php
                 {
                    echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
@@ -56,6 +81,10 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                       else if($_SESSION['pseudo_erreur']==1)
                       {
                         echo "<span class='erreur'>Le pseudo est incorrect.</span><br />";
+                      }
+                      else if($_SESSION['n_connect']==1)
+                      {
+                        echo "<span class='erreur'>Veuillez vous connecter pour accéder au panier.</span><br />";
                       }
                   echo"Mot de passe : <br /><input type='password' name='Mdp'/><br />";
                       if($_SESSION['mdp_vide']==1)
@@ -87,27 +116,28 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
 
         $con=mysqli_connect("localhost",$user,$password,$base);
         $retour=mysqli_select_db($con,$base);
-        $con->set_charset("utf8");
+        $con->set_charset("utf8"); //Mêmes commentaires que la page jeux.
 
         if(!$retour)
           echo "La connexion à la base n'a pas abouti.";
-        if($_SESSION['genre']!=NULL)
+        $_SESSION['compteur']=0; //Permet de savoir quel jeu ajouter
+        if($_SESSION['genre']!=NULL) //Même principe que sur la page agetri.php. Il faut que l'utilisateur ait cliqué sur l'un des genre.
         {
             if($_SESSION['genre']=='fps')
             {
-               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description FROM `jeux` WHERE genre1='FPS' || genre2='FPS'";
+               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description, acheté, total FROM `jeux` WHERE genre1='FPS' || genre2='FPS'";
             }
             else if($_SESSION['genre']=='action')
             {
-               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description FROM `jeux` WHERE genre1='Action' || genre2='Action'";
+               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description, acheté, total FROM `jeux` WHERE genre1='Action' || genre2='Action'";
             }
             else if($_SESSION['genre']=='rpg')
             {
-               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description FROM `jeux` WHERE genre1='RPG' || genre2='RPG'";
+               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description, acheté, total FROM `jeux` WHERE genre1='RPG' || genre2='RPG'";
             }
             else if($_SESSION['genre']=='strategie')
             {
-               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description FROM `jeux` WHERE genre1='Stratégie' || genre2='Stratégie'";
+               $requete="SELECT nom_jeux, genre1, genre2, age_min, prix, image, date_parution, description, acheté, total FROM `jeux` WHERE genre1='Stratégie' || genre2='Stratégie'";
             }
             else if($_SESSION['genre']=='plateforme')
             {
@@ -121,10 +151,15 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
               printf("Error: %s\n", mysqli_error($con));
                 exit();
             }
-            while($donnees=mysqli_fetch_array($reponse,MYSQLI_NUM))
+            while($donnees=mysqli_fetch_array($reponse,MYSQLI_NUM)) //Mêmes commentaires que la page jeux.
             {
+              $_SESSION['nom_jeu'.$_SESSION['compteur']]=$donnees[0];
+              $_SESSION['prix'.$_SESSION['compteur']]=$donnees[4];
+              $_SESSION['image'.$_SESSION['compteur']]=$donnees[5];
+              
               echo "<div class = 'separation'>
                   <h1>".$donnees[0]." : </h1>";
+              $_SESSION['nom_jeu'.$_SESSION['compteur']]=$donnees[0];
               echo"</div>
                  <div class = 'jeux'>  
                  <div class = 'image-jeux'>
@@ -140,13 +175,26 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                  {
                     echo "/".$donnees[2];
                  }
+                 echo "<p> Disponible : ".($donnees[9]-$donnees[8])."</p>";
               echo "</br> Age recommandé : ".$donnees[3]."+ </p>
-                  </div>
-                  <div class ='prix-jeux'>
-                  <p> Prix : ".$donnees[4]."€ </p>
-                  </div>    
+                  </div>";
+              echo "<form method='post' action='panier.php'><input type='submit' name='ajout_g".$_SESSION['compteur']."' value='Ajouter au panier'/><br/></form>
+            <div class ='prix-jeux'> "; // C'est le bouton qui permet d'ajouter au panier.
+            if($_SESSION['erreur_'.$_SESSION['compteur']]==1)
+            {
+              echo "<br /> <span class='erreur'>Il n'y en a plus de disponible</span><br />";
+            }
+              echo"  <div class ='prix-jeux'>
+                  <p> Prix : ".$donnees[4]."€ </p>";
+              $_SESSION['prix_jeux'.$_SESSION['compteur']]=$donnees[4]; 
+              echo "   </div>    
                </div>
                </div>";
+              if(($donnees[9]-$donnees[8])==0)
+        {
+          $_SESSION['erreur_'.$_SESSION['compteur']]=1;
+        }
+               $_SESSION['compteur']++;
              }
         }
       ?>

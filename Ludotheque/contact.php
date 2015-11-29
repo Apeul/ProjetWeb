@@ -13,7 +13,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="ludotheque.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="ludotheque.css" media="screen" /> <!-- Commentaires à la page ludotheque.php -->
     <meta charset = "utf-8">
     <title> -- Ludothèque -- </title>
   </head>
@@ -26,6 +26,19 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
         </a>
       </div>
      	<div id="titre"> JEUX </div>
+            <?php
+      if($_SESSION['connect']==1)
+      {
+        echo "<div id='panier'>
+          <a href='reservation.php'> 
+                <img src='panier.png' alt='Panier' />
+            </a>
+            <br/>
+            Total = ".$_SESSION['prix_panier']." €
+          </div>";
+        //A insérer partout
+      }
+      ?>
      	<div id="barre">
         <ul class="menu">
           <li class="menu-item"><a href="ludotheque.php">Accueil</a></li>
@@ -43,7 +56,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
     <div id="contenu">
       <div id="connexion">
          <?php
-            if($_SESSION['connect']==0)
+            if($_SESSION['connect']==0) //Commentaires à la page ludotheque.php
                 {
                    echo"<form method='post' action='connexion.php'>
                   Pseudo ou email : <input name='Pseudo' placeholder='Pseudo/Mail' /><br />";
