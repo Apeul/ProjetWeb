@@ -106,8 +106,7 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                         </form>";
                 }
           ?>
-    	</div> <!-- test -->
-    	 <a href="tri.php?genre=rpg">rpg</a> <a href="tri.php?genre=fps">fps</a> <a href="tri.php?genre=action">action</a> <a href="tri.php?genre=strategie">strategie</a> <a href="tri.php?genre=plateforme">plateforme</a>  <a href="tri.php?age=3">3+</a> <a href="tri.php?age=7">7+</a> <a href="tri.php?age=12">12+</a> <a href="tri.php?age=18+">18+</a>
+    	</div>
 
 
       <?php
@@ -178,6 +177,5 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
 			 }
 		?>
     </div>		
-  <div id="piedpage">Ceci est le pied de page</div>
   </body>
 </html>

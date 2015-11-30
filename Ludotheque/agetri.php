@@ -200,6 +200,5 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
 
 
     </div>		
-  <div id="piedpage">Ceci est le pied de page</div>
   </body>
 </html>

@@ -119,6 +119,5 @@
         </fieldset>
       </form>
     </div> 		
-		<div id="piedpage">Ceci est le pied de page</div>
   </body>
 </html>
