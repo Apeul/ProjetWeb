@@ -175,8 +175,8 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                  {
                     echo "/".$donnees[2];
                  }
-                 echo "<p> Disponible : ".($donnees[9]-$donnees[8])."</p>";
-              echo "</br> Age recommandé : ".$donnees[3]."+ </p>
+                 echo "<p> Disponible : ".($donnees[9]-$donnees[8]).;
+              echo "Age recommandé : ".$donnees[3]."+ </p>
                   </div>";
               echo "<form method='post' action='panier.php'><input type='submit' name='ajout_g".$_SESSION['compteur']."' value='Ajouter au panier'/><br/></form>
             <div class ='prix-jeux'> "; // C'est le bouton qui permet d'ajouter au panier.
