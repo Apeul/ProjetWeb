@@ -59,6 +59,5 @@
 			echo "Votre total est de : ".$total."€";
 			?>
     </div> 		
-		<div id="piedpage">Ceci est le pied de page</div>
   </body>
 </html>

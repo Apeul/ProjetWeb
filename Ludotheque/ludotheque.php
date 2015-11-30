@@ -134,6 +134,5 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){ //On entre seulement 
         </div>    
       </div>
     </div>		
-  <div id="piedpage">Ceci est le pied de page</div>
   </body>
 </html>
