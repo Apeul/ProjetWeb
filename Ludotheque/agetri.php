@@ -108,7 +108,10 @@ if(!isset($_SESSION['connect']) || !$_SESSION['connect']){
                 }
           ?>
       </div>
-      <a href="tri.php?age=3">3+</a> <a href="tri.php?age=7">7+</a> <a href="tri.php?age=12">12+</a> <a href="tri.php?age=18+">18+</a>
+      <a href="tri.php?age=3"><img src="Pegi3.png" alt="Pegi3" /></a>
+      <a href="tri.php?age=7"><img src="Pegi7.png" alt="Pegi7" /></a>
+      <a href="tri.php?age=12"><img src="Pegi12.png" alt="Pegi12" /></a>
+      <a href="tri.php?age=18+"><img src="Pegi18.png" alt="Pegi18" /></a>
       <?php
         $user="Modira";
         $password="mok";
